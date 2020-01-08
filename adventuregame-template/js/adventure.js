@@ -5,7 +5,8 @@ var button1 = document.getElementById("button1");
 var button2 = document.getElementById("button2");
 var button3 = document.getElementById("button3");
 var gameButtons = document.getElementById("game-buttons");
-var inventoryItem = document.getElementById("InventoryItem")
+var inventoryItem = document.getElementById("InventoryItem");
+var MagicBook = false;
 
 
 function buttonReset(){
@@ -87,29 +88,28 @@ function Left1(){
 
 function Strange_door(){
     buttonReset();
-    //var MagicBook = false
     title.innerHTML = "Strange Door";
-    //if (MagicBook === false){
-    //desc.innerHTML = "You walk up to the strange door. it gives off some scary vibes. You think you should step away cause you are not ready for this";
-    //} else {
+    if (MagicBook == false){
+    desc.innerHTML = "You walk up to the strange door. it gives off some scary vibes. You think you should step away cause you are not ready for this";
+    } else {
     desc.innerHTML = "You walk up to the strange door. It gives off scary vibes, but you are brave enough to open it."
-    //}
+    }
     background = document.onload = document.body.style.backgroundImage = "url('css/Strange_door.png')"
 
     var button1 = document.getElementById("button1");
     var button2 = document.getElementById("button2");
     var button3 = document.getElementById("button3");
-    //if (MagicBook === false){
-    //button1.innerHTML = "Go back";
-    //button1.setAttribute("onclick", "Enter()")
-    //button2 = document.getElementById("button2").style.display = "none";
-    //button3 = document.getElementById("button3").style.display = "none";
-    //} else {
+    if (MagicBook == false){
+    button1.innerHTML = "Go back";
+    button1.setAttribute("onclick", "Enter()")
+    button2 = document.getElementById("button2").style.display = "none";
+    button3 = document.getElementById("button3").style.display = "none";
+    } else {
     button1.innerHTML = "You walk up to the door and open it";
     button1.setAttribute("onclick", "Behind_SDoor()")
     button2 = document.getElementById("button2").style.display = "none";
     button3 = document.getElementById("button3").style.display = "none";
-    //}
+    }
     document.getElementById("inventoryItem").style.display = "none";
     document.onload = console.log(title)
 }
@@ -124,7 +124,7 @@ function Right1(){
     var button2 = document.getElementById("button2");
     var button3 = document.getElementById("button3");
     button1.innerHTML = "Grab the book and go back";
-    button1.setAttribute("onclick", "Enter()")
+    button1.setAttribute("onclick", "Enter()", MagicBook = true)
     button2.innerHTML = "Go back";
     button2.setAttribute("onclick", "Enter()")
     button3 = document.getElementById("button3").style.display = "none";
